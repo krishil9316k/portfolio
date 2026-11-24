@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Krishil — I build the AI that runs my businesses</title>
+<meta name="description" content="Krishil is an AI engineer and founder of Ovrix. He builds AI agents, products and robots — and the AI that runs his businesses while he sleeps.">
+<meta name="theme-color" content="#07080b">
+<meta property="og:title" content="Krishil — I build the AI that runs my businesses">
+<meta property="og:description" content="AI agents, products and robots by Krishil, founder of Ovrix.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080b'/%3E%3Ccircle cx='32' cy='32' r='13' fill='none' stroke='%235EEAD4' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%238B9CFF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<a class="skip" href="#work">Skip to the work</a>
+
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot-in">
+    <span class="mono">BOOTING CONTROL ROOM</span>
+    <span class="boot-n" id="bootN">000</span>
+  </div>
+  <div class="boot-bar"><i id="bootBar"></i></div>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><i></i><span id="cursorLabel"></span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#top" aria-label="Krishil, back to top"><span class="logo-dot"></span>KRISHIL</a>
+  <nav aria-label="Sections">
+    <a href="#work">Work</a><a href="#index">Index</a><a href="#story">Story</a><a href="#day">Day</a><a href="#contact">Contact</a>
+  </nav>
+  <span class="status mono" id="navStatus"><i></i><b id="navClock">--:--</b> IST</span>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" aria-label="Introduction">
+    <canvas id="heroGL" aria-hidden="true"></canvas>
+    <div class="hero-labels" id="heroLabels" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <p class="kicker mono"><span class="pulse"></span><span id="heroState">Agents online</span></p>
+      <h1 class="h1">
+        <span class="line"><span>I build the AI</span></span>
+        <span class="line"><span>that runs my</span></span>
+        <span class="line"><span>businesses.</span></span>
+      </h1>
+      <p class="h1-sub serif"><span class="line"><span>It does all my work while I sleep.</span></span></p>
+      <div class="hero-meta">
+        <p class="lead">I'm Krishil, an AI engineer and the founder of <a href="https://www.ovrix.in" target="_blank" rel="noopener">Ovrix</a>. I build AI agents, products and robots, and I run my own businesses with them.</p>
+        <div class="hero-cta">
+          <a class="btn primary magnetic" href="#work" data-cursor="Scroll">See what's running</a>
+          <a class="btn magnetic" href="#contact">Work with me</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-foot mono">
+      <span>AI agents · Products · Robotics</span>
+      <span class="scroll-hint">Scroll<i></i></span>
+      <span>Gujarat, India</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+  <!-- NOW RUNNING -->
+  <section class="work" id="work" aria-labelledby="workTitle">
+    <div class="sec-head">
+      <span class="sec-n mono">01</span>
+      <h2 id="workTitle" class="h2 reveal">Now <em class="serif">running.</em></h2>
+      <p class="sec-lead reveal">Live products and agents I built and use every day. Not mockups: open them.</p>
+    </div>
+    <div class="flagships" id="flagships"></div>
+  </section>
+
+  <!-- INDEX -->
+  <section class="index" id="index" aria-labelledby="indexTitle">
+    <div class="sec-head">
+      <span class="sec-n mono">02</span>
+      <h2 id="indexTitle" class="h2 reveal">Everything <em class="serif">I've built.</em></h2>
+      <div class="filters" role="tablist" aria-label="Filter projects" id="filters"></div>
+    </div>
+    <ul class="rows" id="rows"></ul>
+    <div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story" aria-labelledby="storyTitle">
+    <div class="story-grid">
+      <figure class="portrait reveal-img">
+        <img src="/assets/krishil.webp" alt="Krishil, looking out at Girnar mountain" width="960" height="1200" loading="lazy">
+        <figcaption class="mono">Me, with Girnar behind</figcaption>
+      </figure>
+      <div class="story-copy">
+        <span class="sec-n mono">03</span>
+        <h2 id="storyTitle" class="h2 reveal">Hardware first. <em class="serif">Then code. Then AI.</em></h2>
+        <p class="reveal">It started on my bedroom floor with a screwdriver, a pair of motors and a lot of wires. I wanted to know how machines move, so I built them: a robot car, a floor cleaner, a car you steer with your hand, a stick that helps blind people walk.</p>
+        <p class="reveal">Then I wanted software that works without me. I wrote Discord bots that run whole communities, then Ruby, an assistant that talks, sees and remembers. Now I build AI agents that run real businesses: my studio Ovrix and my print shop.</p>
+        <p class="quote serif reveal">“I don't just write code. I build machines that move and software that works while I sleep.”</p>
+      </div>
+    </div>
+    <div class="strip" id="strip" aria-label="Early builds">
+      <figure><img src="/assets/robo-car.webp" alt="Me as a kid, wiring a robot car on the floor" loading="lazy"><figcaption><b>The first build</b>Wiring a robot car on the floor at home</figcaption></figure>
+      <figure><img src="/assets/floor-cleaner.webp" alt="An early floor cleaning robot" loading="lazy"><figcaption><b>Floor cleaner</b>One of my first robots</figcaption></figure>
+      <figure><img src="/assets/hand-motion.webp" alt="The hand motion car" loading="lazy"><figcaption><b>Hand motion car</b>Steered by tilting a hand</figcaption></figure>
+      <figure><img src="/assets/smart-stick.webp" alt="A smart walking stick with ultrasonic sensors" loading="lazy"><figcaption><b>Smart stick</b>Warns blind people about obstacles</figcaption></figure>
+      <figure class="strip-end"><span class="serif">and then</span><b>AI agents.</b></figure>
+    </div>
+  </section>
+
+  <!-- DAY -->
+  <section class="day" id="day" aria-labelledby="dayTitle">
+    <div class="sec-head">
+      <span class="sec-n mono">04</span>
+      <h2 id="dayTitle" class="h2 reveal">How my <em class="serif">day runs.</em></h2>
+      <p class="sec-lead reveal">These are real routines from my agent setup. Right now in India it's <b id="dayClock">--:--</b>, and <span id="dayState">my agents are working</span>.</p>
+    </div>
+    <ol class="day-list" id="dayList"></ol>
+  </section>
+
+  <!-- LAB -->
+  <section class="lab" id="lab" aria-labelledby="labTitle">
+    <div class="sec-head">
+      <span class="sec-n mono">05</span>
+      <h2 id="labTitle" class="h2 reveal">Don't read it. <em class="serif">Ask it.</em></h2>
+      <p class="sec-lead reveal">My terminal knows everything on this page. Type <code>help</code> or tap a command.</p>
+    </div>
+    <div class="term reveal" id="term">
+      <div class="term-bar"><i></i><i></i><i></i><span class="mono">krishil@control-room</span></div>
+      <div class="term-out mono" id="termOut" aria-live="polite"></div>
+      <form class="term-in mono" id="termForm"><label for="termInput">$</label><input id="termInput" autocomplete="off" spellcheck="false" aria-label="Terminal command"></form>
+      <div class="term-chips" id="termChips"></div>
+    </div>
+  </section>
+
+  <!-- TOOLBOX -->
+  <section class="tools" aria-labelledby="toolsTitle">
+    <div class="sec-head">
+      <span class="sec-n mono">06</span>
+      <h2 id="toolsTitle" class="h2 reveal">The <em class="serif">toolbox.</em></h2>
+    </div>
+    <div class="tools-grid">
+      <ul class="stack" id="stack"></ul>
+      <ul class="certs" id="certs"></ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" aria-labelledby="contactTitle">
+    <span class="sec-n mono">07</span>
+    <h2 id="contactTitle" class="mega"><span class="line"><span>Let's build</span></span><span class="line"><span class="serif">something.</span></span></h2>
+    <p class="sec-lead">Have a business that should run itself? Tell me about it.</p>
+    <div class="contact-row">
+      <a class="btn primary big magnetic" id="mail" href="#">krishil@ovrix.in</a>
+      <button class="btn magnetic" id="copy" type="button">Copy email</button>
+    </div>
+    <ul class="socials" id="socials"></ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wordmark" aria-hidden="true">KRISHIL</div>
+  <div class="foot-row mono">
+    <span>Designed and built by me, with AI.</span>
+    <span>© 2026 Krishil</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" hidden>
+  <div class="drawer-bg" data-close></div>
+  <article class="drawer-card">
+    <button class="drawer-x" type="button" aria-label="Close" data-close>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div id="drawerBody"></div>
+  </article>
+</div>
+
+<noscript><style>.boot{display:none}.reveal,.line>span{opacity:1!important;transform:none!important}</style></noscript>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
