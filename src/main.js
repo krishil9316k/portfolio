@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import { initHero } from './hero.js';
-import { FLAGSHIP, WORK, CATS, SOCIALS, EMAIL, DAY, STACK, CERTS } from './data.js';
+import { FLAGSHIP, WORK, CATS, SOCIALS, EMAIL, DAY, STACK, CERTS, TEAM } from './data.js';
 
 gsap.registerPlugin(ScrollTrigger);
 const $ = (s, r = document) => r.querySelector(s);
@@ -123,6 +123,27 @@ addEventListener('keydown', (e) => { if (e.key === 'Escape' && !drawer.hidden) c
 $('#dayList').innerHTML = DAY.map(([t, who, what], i) =>
   `<li class="reveal ${i === DAY.length - 1 ? 'last' : ''}"><span class="t">${esc(t)}</span><span class="who mono">${esc(who)}</span><span class="what">${esc(what)}</span></li>`).join('');
 
+// team: org chart built from TEAM; counts come from the data, never typed by hand
+const TEAM_TOTAL = 1 + TEAM.depts.reduce((a, d) => a + d.agents.length, 0);
+const TEAM_LIVE = 1 + TEAM.depts.reduce((a, d) => a + d.agents.filter((x) => x.s === 'live').length, 0);
+$('#teamNum').textContent = TEAM_TOTAL;
+$('#teamLive').textContent = TEAM_LIVE;
+const STATE = { live: 'Live', soon: 'Coming online', paused: 'Paused' };
+$('#org').innerHTML = `
+  <div class="org-top">
+    <div class="tnode owner reveal"><span class="mono">Owner</span><b>Krishil</b></div>
+    <i class="wire-v" aria-hidden="true"></i>
+    <div class="tnode head reveal"><span class="mono"><i class="led live"></i>Head of office</span><b>${esc(TEAM.head.n)}</b><p>${esc(TEAM.head.r)}</p></div>
+    <i class="wire-v" aria-hidden="true"></i>
+  </div>
+  <div class="depts">${TEAM.depts.map((d) => `
+    <div class="dept reveal">
+      <header><div><b>${esc(d.name)}</b><span class="mono">${esc(d.note)}</span></div><em>${d.agents.length}</em></header>
+      <ul>${d.agents.map((a) => `<li tabindex="0" data-s="${a.s}"><i class="led ${a.s}" title="${STATE[a.s]}"></i><b>${esc(a.n)}</b><span>${esc(a.r)}</span></li>`).join('')}</ul>
+    </div>`).join('')}
+  </div>
+  <p class="org-key mono"><span><i class="led live"></i>Live</span><span><i class="led soon"></i>Coming online</span><span><i class="led paused"></i>Paused</span></p>`;
+
 // tools
 $('#stack').innerHTML = STACK.map((s) => `<li>${esc(s)}</li>`).join('');
 $('#certs').innerHTML = CERTS.map(([t, by, y]) => `<li><b>${esc(t)}</b><span>${esc(by)} · ${esc(y)}</span></li>`).join('');
@@ -222,6 +243,10 @@ if (!reduced) {
       gsap.to(strip, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: strip, start: 'center center', end: () => '+=' + dist(), scrub: 0.6, pin: true, invalidateOnRefresh: true } });
     },
   });
+  // team counter counts up from 0
+  { const el = $('#teamNum'), o = { v: 0 };
+    gsap.to(o, { v: TEAM_TOTAL, duration: 2, ease: 'power3.out', snap: { v: 1 }, onUpdate: () => { el.textContent = o.v; }, scrollTrigger: { trigger: '.team-count', start: 'top 80%' } }); }
+  gsap.from('.dept li', { opacity: 0, y: 14, duration: 0.6, ease: 'power2.out', stagger: 0.03, scrollTrigger: { trigger: '.depts', start: 'top 80%' } });
   // footer wordmark rises
   gsap.from('.wordmark', { yPercent: 40, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.foot', start: 'top bottom', end: 'bottom bottom', scrub: true } });
 } else {
@@ -345,7 +370,7 @@ if (fine && !reduced) {
     about: () => "Krishil. AI engineer, founder of Ovrix. I build AI agents, products and robots, and I run my businesses with them.",
     now: () => FLAGSHIP.map((f) => `● ${f.name.padEnd(9)} ${f.line}`).join('\n'),
     projects: () => `${WORK.length + FLAGSHIP.length} builds so far.\n` + live.map((f) => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.name)} → ${esc(f.url.replace('https://', ''))}</a>`).join('\n'),
-    agents: () => DAY.map(([t, w, d]) => `${t.padEnd(16)} ${w.padEnd(10)} ${d}`).join('\n'),
+    agents: () => `${TEAM_TOTAL} AI agents, ${TEAM_LIVE} live. Ruby runs the office.\n` + TEAM.depts.map((d) => `${d.name.padEnd(16)} ${d.agents.length}  ${d.agents.map((a) => a.n).join(', ')}`).join('\n') + '\n\n' + DAY.map(([t, w, d]) => `${t.padEnd(16)} ${w.padEnd(10)} ${d}`).join('\n'),
     stack: () => STACK.join(' · '),
     contact: () => `<a href="mailto:${EMAIL}">${EMAIL}</a>\n` + SOCIALS.filter((s) => s.url).map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join(' · '),
     sleep: () => { const { text } = istNow(); return `It's ${text} in India. Whatever the time, the agents keep working. That's the point.`; },
