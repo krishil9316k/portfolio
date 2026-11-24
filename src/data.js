@@ -7,7 +7,7 @@ export const SOCIALS = [
   { name: 'Ovrix', handle: 'ovrix.in', url: 'https://www.ovrix.in' },
   // Set the url once the account exists; until then it shows as "soon".
   { name: 'Instagram', handle: '@krishilbuilds', url: 'https://www.instagram.com/krishilbuilds' },
-  { name: 'YouTube', handle: '@krishilbuilds', url: null },
+  { name: 'YouTube', handle: '@krishilbuilds', url: 'https://www.youtube.com/@krishilbuilds' },
 ];
 
 export const EMAIL = 'krishil@ovrix.in';
