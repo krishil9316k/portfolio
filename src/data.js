@@ -110,3 +110,42 @@ export const CERTS = [
   ['Basic Robotic Behaviors and Odometry', 'University of Colorado Boulder · Coursera', '2026'],
   ['Robotic Path Planning and Task Execution', 'University of Colorado Boulder · Coursera', '2026'],
 ];
+
+// My AI team: every agent I have built, as registered in my Agent Office.
+// s: live | soon | paused
+export const TEAM = {
+  head: { n: 'Ruby', r: 'My secretary. Takes roll call every 3 hours, hands out tasks and checks the work before it reaches me.' },
+  depts: [
+    { name: 'Home Office', note: 'My day', agents: [
+      { n: 'Scheduler', r: 'Plans my day and week, keeps every deadline', s: 'live' },
+      { n: 'Researcher', r: 'Looks things up and gives one clear recommendation', s: 'live' },
+      { n: 'Writer', r: 'Drafts emails, messages and documents', s: 'live' },
+      { n: 'Coder', r: 'Writes scripts, fixes errors, automates chores', s: 'live' },
+      { n: 'Admin', r: 'Cleans files and data, never deletes without asking', s: 'live' },
+    ] },
+    { name: 'KRISHIL edu hub', note: 'My shop', agents: [
+      { n: 'Shop Manager', r: 'Enters bills into stock, closes the day, weekly reports', s: 'live' },
+      { n: 'Instagram', r: 'Weekly shop posts and captions in Gujarati and English', s: 'soon' },
+      { n: 'WhatsApp', r: 'Drafts replies to customers with rates and pickup times', s: 'soon' },
+    ] },
+    { name: 'Ovrix', note: 'My AI studio', agents: [
+      { n: 'Manager', r: 'Reads every client brief within a minute and picks the specialist', s: 'live' },
+      { n: 'Video Editing', r: 'Edit plan, timeline and quote', s: 'live' },
+      { n: 'AI Films', r: 'Story, scene list and tools', s: 'live' },
+      { n: 'AI Ads', r: 'Hook, script and scenes', s: 'live' },
+      { n: 'Website', r: 'Pages, stack and timeline', s: 'live' },
+      { n: 'Custom Bots', r: 'WhatsApp, Telegram and AI chatbots', s: 'live' },
+      { n: 'Discord Bots', r: 'Commands, moderation and hosting', s: 'live' },
+      { n: 'Discord Servers', r: 'Channels, roles and onboarding', s: 'live' },
+      { n: 'Hosting', r: 'Hosting and monthly maintenance plans', s: 'live' },
+      { n: 'Support', r: 'Drafts client replies for me to approve', s: 'live' },
+      { n: 'Watchdog', r: 'Checks every site every 30 minutes', s: 'live' },
+      { n: 'Billing', r: 'Payment prompts; never marks anything paid itself', s: 'paused' },
+    ] },
+    { name: 'KRISHIL Studio', note: 'Shop social media', agents: [
+      { n: 'Studio Manager', r: 'Takes every upload and routes it to the right system', s: 'live' },
+      { n: 'Instagram Poster', r: 'Edits and captions posts for the shop page', s: 'live' },
+      { n: 'WhatsApp Updates', r: 'Prepares updates for regular customers, I send in 2 taps', s: 'live' },
+    ] },
+  ],
+};
