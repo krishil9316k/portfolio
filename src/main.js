@@ -321,7 +321,12 @@ if (fine && !reduced) {
   const peek = $('#peek'), pimg = $('img', peek);
   const pp = { x: 0, y: 0 };
   $('#rows').addEventListener('pointermove', (e) => { pp.x = e.clientX; pp.y = e.clientY; });
-  gsap.ticker.add(() => { peek.style.left = pp.x + 24 + 'px'; peek.style.top = pp.y - 110 + 'px'; });
+  gsap.ticker.add(() => {
+    // keep the preview on screen: flip to the left of the cursor near the right edge
+    const x = pp.x + 324 > innerWidth ? pp.x - 324 : pp.x + 24;
+    peek.style.left = x + 'px';
+    peek.style.top = Math.max(12, Math.min(pp.y - 110, innerHeight - 240)) + 'px';
+  });
   $('#rows').addEventListener('pointerover', (e) => {
     const b = e.target.closest('button[data-img]');
     if (b) { pimg.src = b.dataset.img; peek.classList.add('on'); } else if (!e.target.closest('button')) peek.classList.remove('on');
