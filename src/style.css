@@ -207,7 +207,7 @@ section{position:relative}
 .story-copy .quote{color:var(--tx);font-size:clamp(26px,2.6vw,38px);line-height:1.15;border-left:2px solid var(--teal);padding-left:20px}
 @media (max-width:900px){.story-grid{grid-template-columns:1fr}.portrait{max-width:480px}}
 .strip{display:flex;gap:18px;padding:clamp(60px,8vw,120px) var(--pad) clamp(30px,4vw,60px);width:max-content}
-.strip figure{position:relative;flex:0 0 auto;width:clamp(280px,34vw,520px);aspect-ratio:4/3;border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+.strip figure{position:relative;flex:0 0 auto;width:clamp(240px,26vw,400px);aspect-ratio:3/4;border-radius:20px;overflow:hidden;border:1px solid var(--line)}
 .strip img{width:100%;height:100%;object-fit:cover}
 .strip figcaption{position:absolute;inset:auto 0 0;padding:40px 18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#d7dbe5;font-size:14px}
 .strip figcaption b{display:block;color:#fff;font-size:19px;font-weight:600;letter-spacing:-.01em}
@@ -215,7 +215,7 @@ section{position:relative}
 .strip-end span{font-size:clamp(28px,3vw,44px);color:var(--mut)}
 .strip-end b{font-size:clamp(44px,5vw,80px);letter-spacing:-.04em;line-height:1;color:var(--teal)}
 .strip-wrap{overflow:hidden}
-@media (max-width:900px){.strip{width:auto;overflow-x:auto;scroll-snap-type:x mandatory}.strip figure{scroll-snap-align:start;width:78vw}}
+@media (max-width:900px){.strip{width:auto;overflow-x:auto;scroll-snap-type:x mandatory}.strip figure{scroll-snap-align:start;width:70vw}}
 
 /* day */
 .day-list{list-style:none;border-top:1px solid var(--line)}
