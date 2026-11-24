@@ -6,7 +6,7 @@ export const SOCIALS = [
   { name: 'LinkedIn', handle: 'Krishil Renuka', url: 'https://www.linkedin.com/in/krishil-renuka-41b87442a' },
   { name: 'Ovrix', handle: 'ovrix.in', url: 'https://www.ovrix.in' },
   // Set the url once the account exists; until then it shows as "soon".
-  { name: 'Instagram', handle: '@krishilbuilds', url: null },
+  { name: 'Instagram', handle: '@krishilbuilds', url: 'https://www.instagram.com/krishilbuilds' },
   { name: 'YouTube', handle: '@krishilbuilds', url: null },
 ];
 
