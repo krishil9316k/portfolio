@@ -1,5 +1,5 @@
 // Everything the site shows lives here, so adding a project or a social is one edit.
-const JSD = 'https://cdn.jsdelivr.net/gh/krishil9316k/krishil9316k.io@main/';
+const JSD = 'https://raw.githubusercontent.com/krishil9316k/krishil9316k.io/main/';
 
 export const SOCIALS = [
   { name: 'GitHub', handle: '@krishil9316k', url: 'https://github.com/krishil9316k' },
