@@ -126,7 +126,6 @@ export const TEAM = {
     { name: 'KRISHIL edu hub', note: 'My shop', agents: [
       { n: 'Shop Manager', r: 'Enters bills into stock, closes the day, weekly reports', s: 'live' },
       { n: 'Instagram', r: 'Weekly shop posts and captions in Gujarati and English', s: 'soon' },
-      { n: 'WhatsApp', r: 'Drafts replies to customers with rates and pickup times', s: 'soon' },
     ] },
     { name: 'Ovrix', note: 'My AI studio', agents: [
       { n: 'Manager', r: 'Reads every client brief within a minute and picks the specialist', s: 'live' },
@@ -142,10 +141,11 @@ export const TEAM = {
       { n: 'Watchdog', r: 'Checks every site every 30 minutes', s: 'live' },
       { n: 'Billing', r: 'Payment prompts; never marks anything paid itself', s: 'paused' },
     ] },
-    { name: 'KRISHIL Studio', note: 'Shop social media', agents: [
+    { name: 'KRISHIL Studio', note: 'Shop social media + WhatsApp', agents: [
       { n: 'Studio Manager', r: 'Takes every upload and routes it to the right system', s: 'live' },
       { n: 'Instagram Poster', r: 'Edits and captions posts for the shop page', s: 'live' },
       { n: 'WhatsApp Updates', r: 'Prepares updates for regular customers, I send in 2 taps', s: 'live' },
+      { n: 'Customer Replies', r: 'Answers the shop WhatsApp with xerox rates and pickup times, I approve each reply', s: 'soon' },
     ] },
   ],
 };
