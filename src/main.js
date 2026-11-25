@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import { initHero } from './hero.js';
+import { initSound } from './sound.js';
 import { FLAGSHIP, WORK, CATS, SOCIALS, EMAIL, DAY, STACK, CERTS, TEAM } from './data.js';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -106,11 +107,13 @@ function openDrawer(w) {
     <ul class="chips" style="margin-bottom:22px">${w.tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
     ${w.url ? `<a class="btn primary" href="${esc(w.url)}" target="_blank" rel="noopener">Open it ${arrow}</a>` : ''}`;
   drawer.hidden = false;
+  sound?.whoosh();
   lenis?.stop();
   $('.drawer-x').focus();
 }
 function closeDrawer() {
   drawer.hidden = true;
+  sound?.duck(false);
   dBody.innerHTML = '';
   lenis?.start();
   lastFocus?.focus();
@@ -201,6 +204,32 @@ addEventListener('scroll', () => {
   nav.classList.toggle('hide', y > 500 && y > lastY && drawer.hidden);
   lastY = y;
 }, { passive: true });
+
+// ------------------------------------------------------------ soundtrack (generated live in code, off until clicked)
+const sound = (() => {
+  const btn = $('#sndBtn');
+  if (!btn || !(window.AudioContext || window.webkitAudioContext)) { btn?.remove(); return null; }
+  let cb = () => {};
+  const ui = initSound({ button: btn, onScroll: (f) => { cb = f; } });
+  // energy: calm in the hero, rises through the work, peaks at "My team is AI", settles at the end
+  const team = $('#team');
+  const energy = () => {
+    const y = scrollY + innerHeight / 2, max = document.documentElement.scrollHeight;
+    const tt = team ? team.offsetTop + team.offsetHeight / 2 : max * 0.6;
+    const e = y < tt ? Math.pow(y / tt, 1.4) : 1 - 0.45 * ((y - tt) / Math.max(1, max - tt));
+    cb(e);
+  };
+  addEventListener('scroll', energy, { passive: true }); energy();
+  document.addEventListener('pointerover', (e) => {
+    const t = e.target.closest('a,button,[role=button]');
+    if (t && !t.contains(e.relatedTarget)) ui.hover();
+  });
+  document.addEventListener('click', (e) => { if (e.target.closest('a,button,[role=button]')) ui.click(); });
+  // let project videos be heard
+  document.addEventListener('play', (e) => { if (e.target.tagName === 'VIDEO' && !e.target.muted) ui.duck(true); }, true);
+  document.addEventListener('pause', (e) => { if (e.target.tagName === 'VIDEO') ui.duck(false); }, true);
+  return ui;
+})();
 
 // ------------------------------------------------------------ hero 3D
 let hero = null;
